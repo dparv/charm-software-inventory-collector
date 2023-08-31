@@ -173,7 +173,6 @@ def parse_args():
 
 def set_output_verbosity(opt):
     if opt.silent:
-        spin.silent = True
         return get_null_logger()
 
     logger = logging.getLogger(const.STDOUT_LOGGER_NAME)
@@ -210,36 +209,6 @@ def get_sysinfo(opt, logger):
     return local_sysinfo, target_sysinfo
 
 
-def spin(start_text, ok, fail):
-    def spin_decorator(func):
-        def wrapper(*args, **kwargs):
-            if spin.silent:
-                return func(*args, **kwargs)
-
-            with vistir.contextmanagers.spinner(
-                start_text=start_text, write_to_stdout=False
-            ) as spinner:
-                try:
-                    return_value = func(*args, **kwargs)
-                    spinner.ok(f"✅ {ok}")
-                    return return_value
-                except Exception as ex:
-                    spinner.fail(f"❌ {fail}")
-                    raise ex
-
-        return wrapper
-
-    return spin_decorator
-
-
-spin.silent = False
-
-
-@spin(
-    "Downloading Ubuntu vulnerability database...",
-    "Ubuntu vulnerability database successfully downloaded!",
-    "Download Failed!",
-)
 def load_uct_data(opt, download_cache, target_sysinfo):
     if opt.download_uct_db_file:
         uct_data_url = get_uct_data_url(target_sysinfo)
@@ -255,7 +224,6 @@ def get_uct_data_url(target_sysinfo):
     return const.UCT_DATA_URL % target_sysinfo.codename
 
 
-@spin("Scanning for vulnerable packages...", "Scan complete!\n", "Scan failed!\n")
 def run_scan(target_sysinfo, uct_data, logger):
     cve_scanner = CVEScanner(logger)
 
