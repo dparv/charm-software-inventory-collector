@@ -33,7 +33,7 @@ class CharmSoftwareInventoryCollectorCharm(CharmBase):
     """Charm the service."""
 
     COLLECTOR_SNAP = "software-inventory-collector"
-    CONFIG_PATH = f"/var/snap/{COLLECTOR_SNAP}/current/collector.yaml"
+    CONFIG_PATH = f"/var/snap/{COLLECTOR_SNAP}/current/config.yaml"
 
     def __init__(self, *args: Any) -> None:
         """Instantiate the charm service."""
