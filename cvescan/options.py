@@ -30,6 +30,7 @@ class Options:
 
         self.silent = args.silent
         self.verbose = args.verbose
+        self.release = args.release
 
     def _set_mode(self, args):
         self.manifest_mode = True if args.manifest else False

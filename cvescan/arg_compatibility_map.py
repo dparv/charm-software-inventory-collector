@@ -14,6 +14,7 @@ EXPERIMENTAL_FLAGS = "-x|--experimental"
 NAGIOS_FLAGS = "-n|--nagios"
 CVE_FLAGS = "-c|--cve"
 SILENT_FLAGS = "-s|--silent"
+RELEASE = "-r|--release"
 
 
 arg_compatibility_map = {
@@ -30,6 +31,11 @@ arg_compatibility_map = {
     const.DB_ARG_NAME: {"flags": DB_FLAGS, "required": set(), "incompatible": set()},
     const.MANIFEST_ARG_NAME: {
         "flags": MANIFEST_FLAGS,
+        "required": set(),
+        "incompatible": set(),
+    },
+    const.RELEASE: {
+        "flags": RELEASE,
         "required": set(),
         "incompatible": set(),
     },

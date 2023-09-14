@@ -167,6 +167,12 @@ def parse_args():
         default=False,
         help=const.SILENT_HELP,
     )
+    cvescan_ap.add_argument(
+        "-r",
+        f"--{const.RELEASE}",
+        metavar="RELEASE",
+        help=const.RELEASE_HELP,
+    )
 
     return cvescan_ap.parse_args()
 

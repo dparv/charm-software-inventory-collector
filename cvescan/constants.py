@@ -25,6 +25,8 @@ CSV_HELP = "format output as CSV"
 JSON_ARG_NAME = "json"
 JSON_HELP = "format output as JSON"
 
+RELEASE_HELP = "Ubuntu OS release"
+RELEASE = "release"
 
 SYSLOG_ARG_NAME = "syslog"
 SYSLOG_HELP = "send JSON formatted output to a syslog server specified by <host>:<port>"
