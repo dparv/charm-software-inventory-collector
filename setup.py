@@ -31,7 +31,6 @@ setuptools.setup(
     install_requires=[
         "tabulate",
         "ust-download-cache",
-        "vistir[spinner]",
         "validators",
     ],
     extras_require={
