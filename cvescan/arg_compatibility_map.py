@@ -36,7 +36,9 @@ arg_compatibility_map = {
     },
     const.RELEASE: {
         "flags": RELEASE,
-        "required": set(),
+        "required": {
+            const.MANIFEST_ARG_NAME,
+        },
         "incompatible": set(),
     },
     const.CSV_ARG_NAME: {
